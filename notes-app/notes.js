@@ -1,13 +1,15 @@
 const fs = require("fs");
 const chalk = require("chalk");
 
-const getNotes = () => {
-  return "Your notes...";
-};
+// const getNotes = () => {
+//   return "Your notes...";
+// };
 
 const addNote = (title, body) => {
   const notes = loadNotes();
-  const duplicateNote = notes.filter((note) => note.title === title);
+  const duplicateNote = notes.find((note) => note.title === title);
+
+  debugger;
 
   if (!duplicateNote) {
     notes.push({
@@ -70,7 +72,7 @@ const loadNotes = () => {
 };
 
 module.exports = {
-  getNotes: getNotes,
+  // getNotes: getNotes,
   addNote: addNote,
   removeNote: removeNote,
   listNotes: listNotes,
